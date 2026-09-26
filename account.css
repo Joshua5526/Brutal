@@ -1,0 +1,406 @@
+/* ========================================
+   RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --orange: #ff9100;
+    --orange-dark: #c96f00;
+
+    --cream: #f5f1e9;
+    --cream-dark: #e9e1d4;
+
+    --black: #171513;
+    --white: #ffffff;
+
+    --muted: #756f66;
+    --border: #ded7ca;
+}
+
+
+body {
+    min-height: 100vh;
+
+    background: var(--cream);
+    color: var(--black);
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ========================================
+   PAGE
+======================================== */
+
+.account-page {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 45px 20px 35px;
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.account__logo {
+    color: var(--orange);
+
+    font-size: 28px;
+    font-weight: 950;
+    letter-spacing: 7px;
+
+    text-decoration: none;
+
+    margin-bottom: 35px;
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+}
+
+.account__logo:hover {
+    color: var(--orange-dark);
+    transform: rotate(-2deg);
+}
+
+
+/* ========================================
+   ACCOUNT CARD
+======================================== */
+
+.account__card {
+    width: 100%;
+    max-width: 520px;
+
+    padding: 50px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 25px;
+
+    box-shadow:
+        0 20px 60px rgba(35, 25, 10, 0.10);
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.account__header {
+    margin-bottom: 35px;
+}
+
+.account__eyebrow {
+    display: inline-block;
+
+    margin-bottom: 15px;
+    padding: 7px 11px;
+
+    background: #ffb84d;
+    color: var(--black);
+
+    border-radius: 4px;
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+
+.account__header h1 {
+    font-size: clamp(42px, 8vw, 62px);
+
+    line-height: 0.9;
+    letter-spacing: -3px;
+
+    margin-bottom: 20px;
+}
+
+.account__header h1 span {
+    display: block;
+
+    color: var(--orange);
+}
+
+
+.account__header p {
+    color: var(--muted);
+
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   FORM
+======================================== */
+
+.account__form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.form__group label,
+.password__label label {
+    font-size: 14px;
+    font-weight: 800;
+}
+
+
+.form__group input {
+    width: 100%;
+
+    padding: 15px 16px;
+
+    border: 2px solid var(--border);
+    border-radius: 10px;
+
+    background: #faf8f4;
+
+    color: var(--black);
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.form__group input::placeholder {
+    color: #aaa39a;
+}
+
+
+.form__group input:focus {
+    border-color: var(--orange);
+
+    background: var(--white);
+
+    box-shadow:
+        0 0 0 4px rgba(255, 145, 0, 0.12);
+}
+
+
+/* ========================================
+   PASSWORD LABEL
+======================================== */
+
+.password__label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.password__label a {
+    color: var(--orange);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.password__label a:hover {
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   CHECKBOX
+======================================== */
+
+.checkbox {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 10px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    cursor: pointer;
+}
+
+
+.checkbox input {
+    width: 17px;
+    height: 17px;
+
+    margin-top: 1px;
+
+    accent-color: var(--orange);
+
+    cursor: pointer;
+}
+
+
+/* ========================================
+   BUTTON
+======================================== */
+
+.account__button {
+    width: 100%;
+
+    padding: 16px 20px;
+
+    margin-top: 5px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: var(--orange);
+    color: var(--black);
+
+    font-size: 16px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 0 var(--orange-dark),
+        0 10px 20px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+}
+
+
+.account__button:hover {
+    background: #ffa51f;
+
+    transform: translateY(-2px);
+}
+
+
+.account__button:active {
+    transform: translateY(4px);
+
+    box-shadow:
+        0 1px 0 var(--orange-dark),
+        0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.account__footer {
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid var(--border);
+
+    text-align: center;
+}
+
+
+.account__footer p {
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+.account__footer a {
+    color: var(--orange);
+
+    font-weight: 900;
+
+    text-decoration: none;
+}
+
+
+.account__footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   BACK HOME
+======================================== */
+
+.back-home {
+    margin-top: 25px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+
+.back-home:hover {
+    color: var(--orange);
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 550px) {
+
+    .account-page {
+        padding: 30px 15px;
+    }
+
+
+    .account__logo {
+        margin-bottom: 25px;
+
+        font-size: 24px;
+    }
+
+
+    .account__card {
+        padding: 35px 25px;
+
+        border-radius: 20px;
+    }
+
+
+    .account__header h1 {
+        font-size: 48px;
+    }
+
+}

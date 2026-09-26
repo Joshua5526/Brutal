@@ -1,0 +1,613 @@
+
+/* ========================================
+   RESET
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --orange: #ff9100;
+    --orange-dark: #c96f00;
+
+    --cream: #f5f1e9;
+    --cream-dark: #e9e1d4;
+
+    --black: #171513;
+    --white: #ffffff;
+
+    --muted: #756f66;
+    --border: #ded7ca;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+    background: var(--cream);
+    color: var(--black);
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    overflow: hidden;
+}
+
+
+/* ========================================
+   DASHBOARD
+======================================== */
+
+.dashboard {
+    width: 100%;
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: 300px 1fr;
+}
+
+
+/* ========================================
+   SIDEBAR
+======================================== */
+
+.sidebar {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--black);
+    color: var(--white);
+
+    border-right: 1px solid #292522;
+}
+
+
+/* ========================================
+   SIDEBAR HEADER
+======================================== */
+
+.sidebar__header {
+    padding: 28px 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #302c28;
+}
+
+
+.logo {
+    color: var(--orange);
+
+    font-size: 24px;
+    font-weight: 950;
+
+    letter-spacing: 6px;
+
+    text-decoration: none;
+}
+
+
+.owner-label {
+    padding: 5px 8px;
+
+    background: var(--orange);
+    color: var(--black);
+
+    border-radius: 4px;
+
+    font-size: 9px;
+    font-weight: 950;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* ========================================
+   SIDEBAR TITLE
+======================================== */
+
+.sidebar__title {
+    padding: 25px 25px 12px;
+
+    color: #aaa49a;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+/* ========================================
+   CONVERSATION LIST
+======================================== */
+
+.conversation-list {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 0 12px;
+}
+
+
+.conversation-item {
+    width: 100%;
+
+    display: block;
+
+    padding: 15px 13px;
+
+    margin-bottom: 4px;
+
+    background: transparent;
+    color: var(--white);
+
+    border: none;
+    border-radius: 10px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease;
+}
+
+
+.conversation-item:hover {
+    background: #292522;
+}
+
+
+.conversation-item.active {
+    background: var(--orange);
+    color: var(--black);
+}
+
+
+.conversation-item__name {
+    display: block;
+
+    margin-bottom: 5px;
+
+    font-size: 15px;
+    font-weight: 900;
+}
+
+
+.conversation-item__preview {
+    display: block;
+
+    overflow: hidden;
+
+    color: #aaa49a;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+.conversation-item.active
+.conversation-item__preview {
+    color: #5b3300;
+}
+
+
+/* ========================================
+   SIDEBAR FOOTER
+======================================== */
+
+.sidebar__footer {
+    padding: 20px;
+
+    border-top: 1px solid #302c28;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+.sidebar__footer a,
+.sidebar__footer button {
+    width: 100%;
+
+    padding: 11px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+
+.sidebar__footer a {
+    color: #aaa49a;
+
+    border: 1px solid #39342f;
+}
+
+
+.sidebar__footer button {
+    border: none;
+
+    background: var(--orange);
+    color: var(--black);
+}
+
+
+/* ========================================
+   CONVERSATION
+======================================== */
+
+.conversation {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+
+/* ========================================
+   CONVERSATION HEADER
+======================================== */
+
+.conversation__header {
+    min-height: 90px;
+
+    padding: 20px 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: var(--white);
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.conversation__eyebrow {
+    color: var(--orange);
+
+    font-size: 10px;
+    font-weight: 950;
+
+    letter-spacing: 2px;
+}
+
+
+.conversation__header h1 {
+    margin-top: 5px;
+
+    font-size: 25px;
+    letter-spacing: -1px;
+}
+
+
+.conversation__email {
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* ========================================
+   MESSAGES
+======================================== */
+
+.conversation__messages {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 35px;
+}
+
+
+.owner-message,
+.user-message {
+    display: flex;
+
+    margin-bottom: 28px;
+}
+
+
+.user-message {
+    justify-content: flex-start;
+}
+
+
+.owner-message {
+    justify-content: flex-end;
+}
+
+
+.dashboard-message {
+    max-width: 700px;
+
+    padding: 15px 18px;
+
+    border-radius: 16px;
+
+    line-height: 1.6;
+}
+
+
+.user-message .dashboard-message {
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px 16px 16px 4px;
+}
+
+
+.owner-message .dashboard-message {
+    background: var(--orange);
+
+    color: var(--black);
+
+    border-radius: 16px 16px 4px 16px;
+}
+
+
+.message-author {
+    margin-bottom: 6px;
+
+    font-size: 10px;
+    font-weight: 950;
+
+    letter-spacing: 1.5px;
+}
+
+
+.user-message .message-author {
+    color: var(--orange);
+}
+
+
+.owner-message .message-author {
+    color: #5b3300;
+}
+
+
+.message-time {
+    margin-top: 8px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+}
+
+
+/* ========================================
+   EMPTY STATE
+======================================== */
+
+.empty-state {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.empty-state__icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    background: var(--orange);
+
+    border-radius: 14px;
+
+    font-size: 25px;
+    font-weight: 950;
+}
+
+
+.empty-state h2 {
+    margin-bottom: 8px;
+
+    font-size: 24px;
+}
+
+
+.empty-state p {
+    max-width: 400px;
+
+    color: var(--muted);
+
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   REPLY AREA
+======================================== */
+
+.reply-area {
+    padding: 18px 35px 20px;
+
+    background: var(--cream);
+
+    border-top: 1px solid var(--border);
+}
+
+
+.reply-form {
+    display: flex;
+
+    gap: 10px;
+
+    padding: 9px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+}
+
+
+.reply-form textarea {
+    flex: 1;
+
+    min-height: 45px;
+    max-height: 140px;
+
+    resize: none;
+
+    padding: 12px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-family: inherit;
+    font-size: 15px;
+}
+
+
+.reply-form button {
+    align-self: flex-end;
+
+    padding: 12px 18px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: var(--orange);
+    color: var(--black);
+
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+
+.reply-form button:disabled,
+.reply-form textarea:disabled {
+    opacity: 0.5;
+
+    cursor: not-allowed;
+}
+
+
+.reply-note {
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    text-align: center;
+
+    font-size: 10px;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 750px) {
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+
+    .sidebar {
+        height: auto;
+        max-height: 230px;
+    }
+
+
+    .sidebar__header {
+        padding: 15px 20px;
+    }
+
+
+    .sidebar__title {
+        padding: 10px 20px;
+    }
+
+
+    .conversation-list {
+        display: flex;
+
+        overflow-x: auto;
+
+        padding: 0 10px 10px;
+    }
+
+
+    .conversation-item {
+        min-width: 180px;
+    }
+
+
+    .sidebar__footer {
+        display: none;
+    }
+
+
+    .conversation {
+        height: calc(100vh - 230px);
+    }
+
+
+    .conversation__header {
+        padding: 15px 20px;
+    }
+
+
+    .conversation__email {
+        display: none;
+    }
+
+
+    .conversation__messages {
+        padding: 25px 20px;
+    }
+
+
+    .reply-area {
+        padding: 12px 15px;
+    }
+}

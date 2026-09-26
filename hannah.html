@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hannah — BRUTAL Dashboard</title>
+
+    <link rel="stylesheet" href="hannah.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar__header">
+
+                <a href="logedin.html" class="logo">
+                    BRUTAL
+                </a>
+
+                <span class="owner-label">
+                    OWNER
+                </span>
+
+            </div>
+
+
+            <div class="sidebar__title">
+                MESSAGES
+            </div>
+
+
+            <div
+                class="conversation-list"
+                id="conversation-list"
+            >
+                <!-- Conversations are added by JavaScript -->
+            </div>
+
+
+            <div class="sidebar__footer">
+
+                <a href="logedin.html">
+                    ← Back to site
+                </a>
+
+                <button id="refresh-button">
+                    ↻ Refresh
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="conversation">
+
+            <header class="conversation__header">
+
+                <div>
+
+                    <span class="conversation__eyebrow">
+                        PRIVATE CONVERSATION
+                    </span>
+
+                    <h1 id="conversation-name">
+                        Select a conversation
+                    </h1>
+
+                </div>
+
+                <div
+                    class="conversation__email"
+                    id="conversation-email"
+                >
+                </div>
+
+            </header>
+
+
+            <!-- MESSAGES -->
+
+            <div
+                class="conversation__messages"
+                id="conversation-messages"
+            >
+
+                <div class="empty-state">
+
+                    <div class="empty-state__icon">
+                        B
+                    </div>
+
+                    <h2>
+                        Your messages are here.
+                    </h2>
+
+                    <p>
+                        Select a conversation from the sidebar
+                        to see what people have sent you.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- REPLY BOX -->
+
+            <div class="reply-area">
+
+                <form id="reply-form" class="reply-form">
+
+                    <textarea
+                        id="reply-input"
+                        placeholder="Write a response..."
+                        rows="1"
+                        disabled
+                    ></textarea>
+
+                    <button
+                        type="submit"
+                        id="reply-button"
+                        disabled
+                    >
+                        Send →
+                    </button>
+
+                </form>
+
+                <p class="reply-note">
+                    Your response will be sent to the selected conversation.
+                </p>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <script src="hannah.js"></script>
+
+</body>
+
+</html>
+

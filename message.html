@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Message — BRUTAL</title>
+
+    <link rel="stylesheet" href="message.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav class="message-nav">
+
+        <a href="logedin.html" class="message-logo">
+            BRUTAL
+        </a>
+
+        <div class="message-nav__right">
+
+            <a href="logedin.html" class="back-link">
+                ← Home
+            </a>
+
+            <button id="new-chat" class="new-chat-button" type="button">
+                + New Chat
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- CHAT -->
+
+    <main class="chat">
+
+        <!-- Messages appear here -->
+
+        <div class="chat__messages" id="chat-messages">
+        </div>
+
+
+        <!-- MESSAGE INPUT -->
+
+        <div class="chat__input-area">
+
+            <form class="chat__form" id="chat-form">
+
+                <textarea
+                    id="message-input"
+                    placeholder="Tell BRUTAL what's going on..."
+                    rows="1"
+                    required
+                ></textarea>
+
+                <button
+                    type="submit"
+                    class="send-button"
+                    aria-label="Send message"
+                >
+                    →
+                </button>
+
+            </form>
+
+
+            <!-- Anonymous option -->
+
+            <label class="anonymous-option">
+
+                <input
+                    type="checkbox"
+                    id="anonymous-message"
+                >
+
+                <span>
+                    Send anonymously
+                </span>
+
+            </label>
+
+
+            <p class="chat__disclaimer">
+                BRUTAL gives direct advice. Responses are not professional
+                mental-health care.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <script src="message.js"></script>
+
+</body>
+
+</html>
+
