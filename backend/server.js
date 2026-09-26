@@ -14,12 +14,9 @@ const PORT = Number(process.env.PORT || 3000);
 const FRONTEND_DIR = path.resolve(__dirname, "..");
 
 app.set("trust proxy", 1);
-const helmet = require("helmet");
-app.use(helmet());
+
 // If the frontend and backend are deployed together, no CORS is needed.
 // If you deploy them separately, set FRONTEND_ORIGIN to the exact frontend origin.
-
-
 if (process.env.FRONTEND_ORIGIN) {
     app.use(cors({
         origin: process.env.FRONTEND_ORIGIN,
