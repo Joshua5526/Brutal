@@ -2,10 +2,15 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const pool = require("./db");
 const { requireOwner } = require("./middleware");
+const rateLimit = require("express-rate-limit"); 
 
 const router = express.Router();
 
-
+const authLimiter = rateLimit({                     
+    windowMs: 15 * 60 * 1000,
+    max: 20,
+    message: { error: "Too many attempts. Please try again later." }
+});
 // ========================================
 // CREATE ACCOUNT
 // ========================================
