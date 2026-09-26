@@ -1,0 +1,16 @@
+{
+    "sqltools.connections": [
+        {
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "brutal",
+            "database": "brutal",
+            "username": "postgres",
+            "password": "Dino2500",
+            "connectionTimeout": 30
+        }
+    ]
+}
