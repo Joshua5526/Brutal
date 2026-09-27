@@ -1,7 +1,7 @@
 // ========================================
 // HANNAH DASHBOARD — FRONTEND
 // ========================================
-//
+// 
 // IMPORTANT:
 // Hannah authentication and authorization happen on the backend.
 //
@@ -283,4 +283,45 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadConversations();
 });
 
+
+  function setupLogout() {
+
+    const logoutButton =
+        document.querySelector("#logout");
+
+    if (!logoutButton) return;
+
+
+    logoutButton.addEventListener(
+        "click",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            try {
+
+                await fetch(
+                    `${API_URL}/logout`,
+                    {
+                        method: "POST",
+                        credentials: "include"
+                    }
+                );
+
+            } catch (error) {
+
+                console.error(
+                    "Logout error:",
+                    error
+                );
+            }
+
+
+            window.location.href =
+                "index.html";
+
+        }
+    );
+}
 
