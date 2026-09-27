@@ -15,6 +15,7 @@
 // Do not rely on this JavaScript for authorization.
 
 const HANNAH_API = "/api/owner";
+const AUTH_API = "/api/auth";
 
 const conversationList =
     document.getElementById("conversation-list");
@@ -302,7 +303,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             try {
 
                 await fetch(
-                    `${API_URL}/logout`,
+                    `${AUTH_API}/logout`,
                     {
                         method: "POST",
                         credentials: "include"
