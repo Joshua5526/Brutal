@@ -281,8 +281,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!allowed) return;
 
     await loadConversations();
+    setupLogout();
 });
-
 
   function setupLogout() {
 
