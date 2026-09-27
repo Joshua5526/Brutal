@@ -1,7 +1,8 @@
 
-/* ================================
-   BRUTAL — MESSAGE PAGE
-   ================================ */
+
+/* ========================================
+   RESET
+======================================== */
 
 * {
     margin: 0;
@@ -12,41 +13,63 @@
 html,
 body {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
 }
 
 body {
+    background: #f5f1e9;
+    color: #171513;
     font-family: Arial, Helvetica, sans-serif;
-    background: #0b0b0b;
-    color: #f5f5f5;
-    overflow: hidden;
 }
 
 
-/* ================================
+/* ========================================
+   VARIABLES
+======================================== */
+
+:root {
+    --orange: #ff9100;
+    --orange-dark: #c96f00;
+    --cream: #f5f1e9;
+    --cream-dark: #e9e1d4;
+    --black: #171513;
+    --white: #ffffff;
+    --muted: #756f66;
+}
+
+
+/* ========================================
    NAVIGATION
-   ================================ */
+======================================== */
 
 .message-nav {
-    height: 72px;
-    width: 100%;
+    position: relative;
+    z-index: 10;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 32px;
+    margin: 20px;
+    padding: 18px 22px;
 
-    background: #0b0b0b;
-    border-bottom: 1px solid #262626;
+    background: var(--white);
+
+    border: 1px solid #e5dfd5;
+    border-radius: 50px;
+
+    box-shadow: 0 8px 25px rgba(40, 30, 15, 0.06);
 }
 
 .message-logo {
-    color: #ffffff;
+    color: var(--orange);
+
     text-decoration: none;
 
     font-size: 24px;
     font-weight: 900;
-    letter-spacing: 3px;
+
+    letter-spacing: 6px;
 }
 
 .message-nav__right {
@@ -56,96 +79,110 @@ body {
 }
 
 
-/* Home link */
+/* ========================================
+   HOME LINK
+======================================== */
 
 .back-link {
-    color: #a5a5a5;
+    color: var(--black);
+
     text-decoration: none;
 
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 700;
 
     transition: color 0.2s ease;
 }
 
 .back-link:hover {
-    color: #ffffff;
+    color: var(--orange);
 }
 
 
-/* New chat button */
+/* ========================================
+   NEW CHAT BUTTON
+======================================== */
 
 .new-chat-button {
-    border: 1px solid #3a3a3a;
-    background: #151515;
-    color: #ffffff;
+    padding: 12px 20px;
 
-    padding: 10px 16px;
+    border: none;
+    border-radius: 50px;
 
-    border-radius: 6px;
+    background: var(--orange);
+    color: var(--white);
 
+    font-family: inherit;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 800;
 
     cursor: pointer;
 
+    box-shadow:
+        0 4px 0 var(--orange-dark),
+        0 8px 15px rgba(0, 0, 0, 0.15);
+
     transition:
-        background 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
 }
 
 .new-chat-button:hover {
-    background: #222222;
-    border-color: #555555;
+    transform: translateY(-2px);
 }
 
 .new-chat-button:active {
-    transform: scale(0.97);
+    transform: translateY(3px);
+
+    box-shadow:
+        0 1px 0 var(--orange-dark),
+        0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 
-/* ================================
+/* ========================================
    CHAT
-   ================================ */
+======================================== */
 
 .chat {
-    height: calc(100vh - 72px);
+    width: 100%;
+    max-width: 1100px;
+
+    height: calc(100vh - 112px);
+
+    margin: 0 auto;
+
+    padding: 20px 30px 30px;
 
     display: flex;
     flex-direction: column;
-
-    max-width: 1000px;
-    margin: 0 auto;
-
-    width: 100%;
 }
 
 
-/* ================================
+/* ========================================
    MESSAGES
-   ================================ */
+======================================== */
 
 .chat__messages {
     flex: 1;
 
     overflow-y: auto;
 
-    padding: 40px 32px 30px;
+    padding: 20px 10px 30px;
 
     display: flex;
     flex-direction: column;
     gap: 18px;
 
     scrollbar-width: thin;
-    scrollbar-color: #333 transparent;
+    scrollbar-color: #cfc7ba transparent;
 }
 
 
 /* Chrome / Edge scrollbar */
 
 .chat__messages::-webkit-scrollbar {
-    width: 6px;
+    width: 7px;
 }
 
 .chat__messages::-webkit-scrollbar-track {
@@ -153,77 +190,107 @@ body {
 }
 
 .chat__messages::-webkit-scrollbar-thumb {
-    background: #333;
-    border-radius: 10px;
-}
-
-.chat__messages::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: #cfc7ba;
+    border-radius: 20px;
 }
 
 
-/*
-   These styles will work if your
-   JavaScript creates messages like:
-
-   <div class="message user-message">...</div>
-   <div class="message brutal-message">...</div>
-*/
+/* ========================================
+   MESSAGE BUBBLES
+======================================== */
 
 .message {
     max-width: 75%;
 
-    padding: 14px 18px;
+    padding: 17px 20px;
 
-    border-radius: 10px;
+    border-radius: 20px;
 
     font-size: 15px;
-    line-height: 1.55;
+    line-height: 1.6;
 
     word-wrap: break-word;
+
+    box-shadow: 0 8px 20px rgba(40, 30, 15, 0.06);
 }
 
 
-/* User message */
+/* User */
 
 .user-message {
     align-self: flex-end;
 
-    background: #ffffff;
-    color: #0b0b0b;
+    background: var(--black);
+    color: var(--white);
 
-    border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 5px;
 }
 
 
-/* BRUTAL message */
+/* BRUTAL */
 
 .brutal-message {
     align-self: flex-start;
 
-    background: #171717;
-    color: #eeeeee;
+    background: var(--white);
+    color: var(--black);
 
-    border: 1px solid #292929;
+    border: 1px solid #e4ddd1;
 
-    border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 5px;
+}
+
+.brutal-message::before {
+    content: "BRUTAL";
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--orange);
+
+    font-size: 11px;
+    font-weight: 900;
+
+    letter-spacing: 3px;
 }
 
 
-/* ================================
+/* ========================================
+   EMPTY CHAT
+======================================== */
+
+.chat__messages:empty::before {
+    content: "START A CONVERSATION";
+
+    margin: auto;
+
+    padding: 10px 16px;
+
+    background: #ffb84d;
+    color: var(--black);
+
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+/* ========================================
    INPUT AREA
-   ================================ */
+======================================== */
 
 .chat__input-area {
-    padding: 18px 32px 24px;
-
-    background: #0b0b0b;
-
-    border-top: 1px solid #202020;
+    padding-top: 10px;
 }
 
 
-/* Message form */
+/* ========================================
+   INPUT FORM
+======================================== */
 
 .chat__form {
     display: flex;
@@ -232,12 +299,14 @@ body {
 
     width: 100%;
 
-    padding: 8px;
+    padding: 9px;
 
-    background: #151515;
+    background: var(--white);
 
-    border: 1px solid #303030;
-    border-radius: 10px;
+    border: 1px solid #e4ddd1;
+    border-radius: 22px;
+
+    box-shadow: 0 10px 30px rgba(40, 30, 15, 0.08);
 
     transition:
         border-color 0.2s ease,
@@ -245,18 +314,25 @@ body {
 }
 
 .chat__form:focus-within {
-    border-color: #555555;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.04);
+    border-color: var(--orange);
+
+    box-shadow:
+        0 10px 30px rgba(40, 30, 15, 0.08),
+        0 0 0 3px rgba(255, 145, 0, 0.12);
 }
 
 
-/* Text input */
+/* ========================================
+   TEXTAREA
+======================================== */
 
 #message-input {
     flex: 1;
 
-    min-height: 42px;
-    max-height: 160px;
+    min-height: 48px;
+    max-height: 150px;
+
+    padding: 13px 14px;
 
     resize: none;
 
@@ -264,25 +340,25 @@ body {
     outline: none;
 
     background: transparent;
-    color: #ffffff;
-
-    padding: 10px 12px;
+    color: var(--black);
 
     font-family: inherit;
     font-size: 15px;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 #message-input::placeholder {
-    color: #686868;
+    color: #9a948b;
 }
 
 
-/* Send button */
+/* ========================================
+   SEND BUTTON
+======================================== */
 
 .send-button {
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
 
     flex-shrink: 0;
 
@@ -291,45 +367,49 @@ body {
     justify-content: center;
 
     border: none;
-    border-radius: 7px;
+    border-radius: 50%;
 
-    background: #ffffff;
-    color: #000000;
+    background: var(--orange);
+    color: var(--black);
 
-    font-size: 22px;
+    font-size: 25px;
     font-weight: 900;
 
     cursor: pointer;
 
+    box-shadow: 0 4px 0 var(--orange-dark);
+
     transition:
-        background 0.2s ease,
-        transform 0.2s ease;
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
 }
 
 .send-button:hover {
-    background: #dddddd;
-    transform: translateX(2px);
+    transform: translateY(-2px);
 }
 
 .send-button:active {
-    transform: scale(0.94);
+    transform: translateY(3px);
+
+    box-shadow: 0 1px 0 var(--orange-dark);
 }
 
 
-/* ================================
+/* ========================================
    ANONYMOUS OPTION
-   ================================ */
+======================================== */
 
 .anonymous-option {
     display: flex;
     align-items: center;
     gap: 8px;
 
-    margin-top: 12px;
+    margin: 13px 5px 0;
 
-    color: #888888;
+    color: var(--muted);
 
     font-size: 13px;
+    font-weight: 600;
 
     cursor: pointer;
 
@@ -337,23 +417,23 @@ body {
 }
 
 .anonymous-option input {
-    width: 15px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
 
-    accent-color: #ffffff;
+    accent-color: var(--orange);
 
     cursor: pointer;
 }
 
 
-/* ================================
+/* ========================================
    DISCLAIMER
-   ================================ */
+======================================== */
 
 .chat__disclaimer {
-    margin-top: 10px;
+    margin-top: 9px;
 
-    color: #555555;
+    color: #9a948b;
 
     font-size: 11px;
     line-height: 1.4;
@@ -362,41 +442,24 @@ body {
 }
 
 
-/* ================================
-   EMPTY CHAT
-   ================================ */
-
-.chat__messages:empty::before {
-    content: "Start a conversation with BRUTAL.";
-
-    display: block;
-
-    margin: auto;
-
-    color: #444444;
-
-    font-size: 14px;
-    text-align: center;
-}
-
-
-/* ================================
+/* ========================================
    MOBILE
-   ================================ */
+======================================== */
 
-@media (max-width: 650px) {
+@media (max-width: 850px) {
 
     .message-nav {
-        height: 64px;
-        padding: 0 18px;
+        margin: 12px;
+        padding: 15px 18px;
     }
 
     .message-logo {
         font-size: 20px;
+        letter-spacing: 4px;
     }
 
     .message-nav__right {
-        gap: 10px;
+        gap: 12px;
     }
 
     .back-link {
@@ -404,42 +467,85 @@ body {
     }
 
     .new-chat-button {
-        padding: 9px 12px;
-        font-size: 12px;
+        padding: 10px 15px;
+        font-size: 13px;
     }
 
     .chat {
-        height: calc(100vh - 64px);
-    }
+        height: calc(100vh - 88px);
 
-    .chat__messages {
-        padding: 25px 16px 20px;
-    }
-
-    .chat__input-area {
-        padding: 12px 16px 18px;
+        padding: 10px 20px 20px;
     }
 
     .message {
-        max-width: 88%;
-        font-size: 14px;
-    }
-
-    .chat__disclaimer {
-        font-size: 10px;
+        max-width: 85%;
     }
 }
 
 
-/* ================================
+/* ========================================
+   SMALL PHONES
+======================================== */
+
+@media (max-width: 500px) {
+
+    .message-nav {
+        border-radius: 30px;
+    }
+
+    .message-logo {
+        font-size: 18px;
+        letter-spacing: 3px;
+    }
+
+    .back-link {
+        display: none;
+    }
+
+    .new-chat-button {
+        padding: 9px 13px;
+        font-size: 12px;
+    }
+
+    .chat {
+        padding: 5px 12px 15px;
+    }
+
+    .chat__messages {
+        padding: 15px 4px 20px;
+    }
+
+    .message {
+        max-width: 90%;
+        padding: 14px 16px;
+
+        font-size: 14px;
+    }
+
+    .chat__form {
+        border-radius: 18px;
+    }
+
+    #message-input {
+        font-size: 14px;
+    }
+
+    .send-button {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+
+/* ========================================
    ACCESSIBILITY
-   ================================ */
+======================================== */
 
 button:focus-visible,
 a:focus-visible,
 textarea:focus-visible,
 input:focus-visible {
-    outline: 2px solid #ffffff;
-    outline-offset: 2px;
+    outline: 3px solid var(--orange);
+    outline-offset: 3px;
 }
 
